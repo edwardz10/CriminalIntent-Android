@@ -40,4 +40,13 @@ public class CrimeLab {
         }
         return null;
     }
+
+    public boolean isFirstCrime(final Crime crime) {
+        return mCrimes.get(0) == crime;
+    }
+
+    public boolean isLastCrime(final Crime crime) {
+        return mCrimes.get(mCrimes.size() - 1) == crime;
+    }
+
 }

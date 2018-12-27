@@ -2,6 +2,7 @@ package com.bignerdranch.android.criminalintent;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -23,6 +24,8 @@ public class CrimeFragment extends Fragment {
     private EditText mTitleField;
     private Button mDateButton;
     private CheckBox mSolvedCheckBox;
+    private Button mFirstButton;
+    private Button mLastButton;
 
     public static CrimeFragment newInstance(UUID crimeId) {
         final Bundle args = new Bundle();
@@ -40,7 +43,7 @@ public class CrimeFragment extends Fragment {
     }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, final ViewGroup container,
                              Bundle savedInstanceState) {
         final View v = inflater.inflate(R.layout.fragment_crime, container, false);
 
@@ -66,7 +69,6 @@ public class CrimeFragment extends Fragment {
         mDateButton.setText(mCrime.getDate().toString());
         mDateButton.setEnabled(false);
 
-
         mSolvedCheckBox = (CheckBox)v.findViewById(R.id.crime_solved);
         mSolvedCheckBox.setChecked(mCrime.isSolved());
 
@@ -75,6 +77,26 @@ public class CrimeFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                                  boolean isChecked) {
                 mCrime.setSolved(isChecked);
+            }
+        });
+
+        mFirstButton = v.findViewById(R.id.btn_first);
+        mFirstButton.setEnabled(!CrimeLab.get(getActivity()).isFirstCrime(mCrime));
+
+        mFirstButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ViewPager) container).setCurrentItem(0);
+            }
+        });
+
+        mLastButton = v.findViewById(R.id.btn_last);
+        mLastButton.setEnabled(!CrimeLab.get(getActivity()).isLastCrime(mCrime));
+
+        mLastButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((ViewPager) container).setCurrentItem(CrimeLab.get(getActivity()).getCrimes().size() - 1);
             }
         });
 
