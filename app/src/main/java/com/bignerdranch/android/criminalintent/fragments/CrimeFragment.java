@@ -18,7 +18,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
-import com.bignerdranch.android.criminalintent.Crime;
+import com.bignerdranch.android.criminalintent.model.Crime;
 import com.bignerdranch.android.criminalintent.CrimeLab;
 import com.bignerdranch.android.criminalintent.R;
 
@@ -203,6 +203,12 @@ public class CrimeFragment extends Fragment {
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        CrimeLab.get(getActivity()).updateCrime(mCrime);
     }
 
     private void updateDate() {

@@ -16,7 +16,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bignerdranch.android.criminalintent.Crime;
+import com.bignerdranch.android.criminalintent.model.Crime;
 import com.bignerdranch.android.criminalintent.CrimeLab;
 import com.bignerdranch.android.criminalintent.activities.CrimePagerActivity;
 import com.bignerdranch.android.criminalintent.R;
@@ -122,6 +122,7 @@ public class CrimeListFragment extends Fragment {
             mAdapter = new CrimeAdapter(crimes);
             mCrimeRecyclerView.setAdapter(mAdapter);
         } else {
+            mAdapter.setCrimes(crimes);
             mAdapter.notifyDataSetChanged();
         }
 
@@ -163,6 +164,10 @@ public class CrimeListFragment extends Fragment {
         private List<Crime> mCrimes;
 
         public CrimeAdapter(List<Crime> crimes) {
+            mCrimes = crimes;
+        }
+
+        public void setCrimes(final List<Crime> crimes) {
             mCrimes = crimes;
         }
 

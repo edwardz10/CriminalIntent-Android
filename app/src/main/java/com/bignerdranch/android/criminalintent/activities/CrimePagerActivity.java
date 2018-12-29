@@ -9,7 +9,7 @@ import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 
-import com.bignerdranch.android.criminalintent.Crime;
+import com.bignerdranch.android.criminalintent.model.Crime;
 import com.bignerdranch.android.criminalintent.CrimeLab;
 import com.bignerdranch.android.criminalintent.R;
 import com.bignerdranch.android.criminalintent.fragments.CrimeFragment;
