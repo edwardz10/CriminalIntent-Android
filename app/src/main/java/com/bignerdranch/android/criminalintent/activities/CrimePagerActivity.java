@@ -1,4 +1,4 @@
-package com.bignerdranch.android.criminalintent;
+package com.bignerdranch.android.criminalintent.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -8,6 +8,11 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
+
+import com.bignerdranch.android.criminalintent.Crime;
+import com.bignerdranch.android.criminalintent.CrimeLab;
+import com.bignerdranch.android.criminalintent.R;
+import com.bignerdranch.android.criminalintent.fragments.CrimeFragment;
 
 import java.util.List;
 import java.util.UUID;

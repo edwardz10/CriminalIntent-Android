@@ -1,10 +1,9 @@
-package com.bignerdranch.android.criminalintent;
+package com.bignerdranch.android.criminalintent.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -19,13 +18,17 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 
+import com.bignerdranch.android.criminalintent.Crime;
+import com.bignerdranch.android.criminalintent.CrimeLab;
+import com.bignerdranch.android.criminalintent.R;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.UUID;
 
-import static com.bignerdranch.android.criminalintent.DatePickerFragment.EXTRA_DATE;
-import static com.bignerdranch.android.criminalintent.TimePickerFragment.EXTRA_TIME;
+import static com.bignerdranch.android.criminalintent.fragments.DatePickerFragment.EXTRA_DATE;
+import static com.bignerdranch.android.criminalintent.fragments.TimePickerFragment.EXTRA_TIME;
 
 public class CrimeFragment extends Fragment {
 
