@@ -102,17 +102,8 @@ public class CrimeLab {
         values.put(CrimeDbSchema.CrimeTable.Cols.TITLE, crime.getTitle());
         values.put(CrimeDbSchema.CrimeTable.Cols.DATE, crime.getDate().getTime());
         values.put(CrimeDbSchema.CrimeTable.Cols.SOLVED, crime.isSolved() ? 1 : 0);
+        values.put(CrimeDbSchema.CrimeTable.Cols.SUSPECT, crime.getSuspect());
         return values;
-    }
-
-    public boolean isFirstCrime(final Crime crime) {
-        return true;
-//        return mCrimes.get(0) == crime;
-    }
-
-    public boolean isLastCrime(final Crime crime) {
-        return true;
-//        return mCrimes.get(mCrimes.size() - 1) == crime;
     }
 
 }

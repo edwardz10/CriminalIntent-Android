@@ -41,8 +41,6 @@ public class CrimeFragment extends Fragment {
     private Button mDateButton;
     private Button mTimeButton;
     private CheckBox mSolvedCheckBox;
-    private Button mFirstButton;
-    private Button mLastButton;
 
     private java.text.DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy");
     private java.text.DateFormat timeFormat = new SimpleDateFormat("HH:mm");
@@ -122,26 +120,6 @@ public class CrimeFragment extends Fragment {
             public void onCheckedChanged(CompoundButton buttonView,
                                                  boolean isChecked) {
                 mCrime.setSolved(isChecked);
-            }
-        });
-
-        mFirstButton = v.findViewById(R.id.btn_first);
-        mFirstButton.setEnabled(!CrimeLab.get(getActivity()).isFirstCrime(mCrime));
-
-        mFirstButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((ViewPager) container).setCurrentItem(0);
-            }
-        });
-
-        mLastButton = v.findViewById(R.id.btn_last);
-        mLastButton.setEnabled(!CrimeLab.get(getActivity()).isLastCrime(mCrime));
-
-        mLastButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                ((ViewPager) container).setCurrentItem(CrimeLab.get(getActivity()).getCrimes().size() - 1);
             }
         });
 
