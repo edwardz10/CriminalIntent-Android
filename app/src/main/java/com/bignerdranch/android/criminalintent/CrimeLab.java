@@ -10,6 +10,7 @@ import com.bignerdranch.android.criminalintent.db.CrimeCursorWrapper;
 import com.bignerdranch.android.criminalintent.db.CrimeDbSchema;
 import com.bignerdranch.android.criminalintent.model.Crime;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
@@ -94,6 +95,11 @@ public class CrimeLab {
         } finally {
             cursorWrapper.close();
         }
+    }
+
+    public File getPhotoFile(Crime crime) {
+        File filesDir = mContext.getFilesDir();
+        return new File(filesDir, crime.getPhotoFilename());
     }
 
     private static ContentValues getContentValues(Crime crime) {
