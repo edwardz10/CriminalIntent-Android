@@ -27,5 +27,6 @@
     </application>
 
     <uses-permission android:name="android.permission.READ_CONTACTS"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false" />
 
 </manifest>
