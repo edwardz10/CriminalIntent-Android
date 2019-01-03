@@ -63,6 +63,7 @@ public class CrimeFragment extends Fragment {
     private Button mDialButton;
     private ImageButton mPhotoButton;
     private ImageView mPhotoView;
+    private ImageButton mFullSizeButton;
 
     private java.text.DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
 
@@ -220,6 +221,16 @@ public class CrimeFragment extends Fragment {
 
         mPhotoView = (ImageView) v.findViewById(R.id.crime_photo);
         updatePhotoView();
+
+        mFullSizeButton = v.findViewById(R.id.full_size_photo);
+        mFullSizeButton.setEnabled(canTakePhoto);
+
+        mFullSizeButton.setOnClickListener((v1) -> {
+            FullSizePhotoFragment dialog = FullSizePhotoFragment
+                    .newInstance(mCrime);
+            dialog.setTargetFragment(CrimeFragment.this, REQUEST_DATE);
+            dialog.show(getFragmentManager(), DIALOG_DATE);
+        });
 
         return v;
     }
